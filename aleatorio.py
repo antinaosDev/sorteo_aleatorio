@@ -76,22 +76,57 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Título y logo
-st.markdown("""
-    <div class="header">
-        <h1>👥 Programa Saludablemente</h1>
-        <p>Fortaleciendo la integración, participación y bienestar de nuestros funcionarios</p>
-    </div>
-""", unsafe_allow_html=True)
 
-# Carga del logo (el usuario puede subirlo)
-st.sidebar.header("")
+
+
+el1,el2 = st.columns([1,4])
+with el1:
+    # Cargar imagen
+    with st.container(border=True):
+        imagen_cesfam = Image.open("IMG-20230518-WA0125.jpg")
+        st.image(imagen_cesfam,caption="CESFAM Cholchol",use_container_width=True)
+with el2:
+    # Título y logo
+    st.markdown("""
+        <div class="header">
+            <h1>Programa Saludablemente</h1>
+            <p>Fortaleciendo la integración, participación y bienestar de nuestros funcionarios</p>
+        </div>
+    """, unsafe_allow_html=True)
+
+
+# Logo principal
 logo = "NUEVO LOGO.png"
 if logo:
     image = Image.open(logo)
-    st.sidebar.image(image, width=150)
+    st.sidebar.image(image, width=200)
 else:
     st.sidebar.info("Por favor, sube el logo de la institución")
+
+# Bloque de bienvenida
+st.sidebar.markdown("""
+    <div style="background-color:#007BFF; padding: 12px; border-radius: 10px; text-align: center; color: white; box-shadow: 0 3px 6px rgba(0,0,0,0.1); margin-top: 10px;">
+        <h4>🏥 Salud Cholchol</h4>
+    </div>
+""", unsafe_allow_html=True)
+
+
+# Enlaces de interés o contacto
+st.sidebar.markdown("""
+    <div style="background-color:#e8f5e9; padding: 12px; border-radius: 10px; margin-top: 15px; border-left: 5px solid #28a745; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h5>🌐 Más información</h5>
+        <p style="font-size:13px; margin:5px 0;">
+            🏥 CESFAM Cholchol: 
+            <a href="mailto:cholcholcesfam@gmail.com" style="color:#28a745; text-decoration:none;">cholcholcesfam@gmail.com</a>
+        </p>
+        <p style="font-size:13px; margin:5px 0;">
+            ⛑️ Prevención de Riesgos DSM Cholchol: 
+            <a href="mailto:prevencionderiesgosdsmcholchol@gmail.com" style="color:#28a745; text-decoration:none;">prevencionderiesgosdsmcholchol@gmail.com</a>
+        </p>
+    </div>
+""", unsafe_allow_html=True)
+
+
 
 # Explicación del programa
 st.markdown("""
